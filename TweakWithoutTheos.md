@@ -129,3 +129,7 @@ And you're done!
 ---
 
 Voilà! You've got a package. This is the basics of what goes on when you compile a project using theos/other packagers. 
+
+Credits:
+
+Special thanks to sbinger and kabir for corrections. 
