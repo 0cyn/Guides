@@ -33,7 +33,7 @@ I'm going to provide a finished command, and then go through each flag and what 
 
 ### Final Command
 
-`clang++ -arch armv7 -arch arm64 -arch arm64e -fobjc-arc -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks -miphoneos-version-min=13.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk -Wall -O2 -c -o Tweak.xm.o Tweak.xm.mm `
+`clang++ -arch armv7 -arch arm64 -arch arm64e -fobjc-arc -miphoneos-version-min=13.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk -Wall -O2 -c -o Tweak.xm.o Tweak.xm.mm `
 
 #### Flags explained
 
@@ -42,8 +42,6 @@ I'm going to provide a finished command, and then go through each flag and what 
 `-arch <archname>` specifies we are compiling for a specific arch. In this example, we're going to lazily compile all of them at once. 
 
 `-fobjc-arc` tells clang that we're using Automated Reference Counting. 
-
-`-F<directory>` tells clang where to look for Frameworks. This is crucial. 
 
 `-miphoneos-version-min=13.0` specifies our target iOS version.
 
@@ -67,7 +65,7 @@ Finally, we're going to get something you can actually run on your device.
 
 ### Final Command
 
-`clang++ -arch armv7 -arch arm64 -arch arm64e -fobjc-arc -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks -miphoneos-version-min=13.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk -Wall -O2 -fcolor-diagnostics -framework CoreFoundation -framework Foundation -framework UIKit -framework CoreGraphics -framework QuartzCore -framework CoreImage -framework AudioToolbox -lsubstrate -lobjc -lc++ -dynamiclib -ggdb -lsystem.b -Xlinker -segalign -Xlinker 4000 -L$THEOS/lib -o Tweak.dylib Tweak.xm.o`
+`clang++ -arch armv7 -arch arm64 -arch arm64e -fobjc-arc -miphoneos-version-min=13.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk -Wall -O2 -fcolor-diagnostics -framework CoreFoundation -framework Foundation -framework UIKit -framework CoreGraphics -framework QuartzCore -framework CoreImage -framework AudioToolbox -lsubstrate -lobjc -lc++ -dynamiclib -ggdb -lsystem.b -Xlinker -segalign -Xlinker 4000 -L$THEOS/lib -o Tweak.dylib Tweak.xm.o`
 
 #### New flags explained 
 
