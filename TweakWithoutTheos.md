@@ -69,7 +69,7 @@ Finally, we're going to get something you can actually run on your device.
 
 #### New flags explained 
 
-`-framework <Framework Name>` tells our linker we're going to be linking against a specific framework
+`-framework <Framework Name>` tells our linker we're going to be linking against a specific framework. We only specify what we need here.
 
 `-l<library name>` specifies a library we want to link against. We link against libsubstrate, libobjc, libc++ and libsystem.b, 
 
